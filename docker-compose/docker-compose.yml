@@ -1,0 +1,16 @@
+seleniumhub:
+    image: selenium/hub:3.14.0-arsenic
+    ports:
+    - "4444:4444"
+chromenode:
+    image: selenium/node-chrome-debug:3.14.0-arsenic
+    ports:
+    - "5900"
+    links:
+    - seleniumhub:hub
+firefoxnode:
+    image: selenium/node-firefox-debug:3.14.0-arsenic
+    ports:
+    - "5900"
+    links:
+    - seleniumhub:hub
